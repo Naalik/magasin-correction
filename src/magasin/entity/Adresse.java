@@ -28,6 +28,8 @@ public class Adresse implements Serializable {
     private Integer zip;
     private String pays;
     
+    
+    
     public Long getId() {
         return id;
     }
@@ -59,6 +61,38 @@ public class Adresse implements Serializable {
     @Override
     public String toString() {
         return "magasin.entity.Adresse[ id=" + id + " ]";
+    }
+
+    public String getRue() {
+        return rue;
+    }
+
+    public void setRue(String rue) {
+        this.rue = rue;
+    }
+
+    public Integer getNumero() {
+        return numero;
+    }
+
+    public void setNumero(Integer numero) {
+        this.numero = numero;
+    }
+
+    public Integer getZip() {
+        return zip;
+    }
+
+    public void setZip(Integer zip) {
+        this.zip = zip;
+    }
+
+    public String getPays() {
+        return pays;
+    }
+
+    public void setPays(String pays) {
+        this.pays = pays;
     }
     
 }

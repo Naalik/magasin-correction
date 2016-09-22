@@ -28,6 +28,14 @@ import javax.persistence.TemporalType;
 @Entity
 public class Commande implements Serializable {
 
+    public Double getPrixTotal() {
+        return prixTotal;
+    }
+
+    public void setPrixTotal(Double prixTotal) {
+        this.prixTotal = prixTotal;
+    }
+
     public enum StatutCommande{
         EN_COURS,
         TERMINE,
@@ -39,6 +47,8 @@ public class Commande implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private Double prixTotal;
+    
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date dateEtHeureCommande;
