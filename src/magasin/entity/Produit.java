@@ -6,11 +6,14 @@
 package magasin.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 /**
@@ -28,6 +31,8 @@ public class Produit implements Serializable {
     @ManyToOne// Définit type de jointure
     @JoinColumn(name = "categorie_id")// Crée colonne clé étangère
     private Categorie categorie;
+    @ManyToMany(mappedBy = "produit")
+    private List<Commande> commandes = new ArrayList<>();
 
     public Categorie getCategorie() {
         return categorie;
@@ -68,6 +73,14 @@ public class Produit implements Serializable {
     @Override
     public String toString() {
         return "magasin.entity.Produit[ id=" + id + " ]";
+    }
+
+    public List<Commande> getCommandes() {
+        return commandes;
+    }
+
+    public void setCommandes(List<Commande> commandes) {
+        this.commandes = commandes;
     }
     
 }
